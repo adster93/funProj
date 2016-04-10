@@ -1,8 +1,11 @@
 
 
-var url = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/stuff?'
+var url = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/orange?'
 
 app.controller('practicehttp', function($scope, $http) {
+	$scope.logIt = function() {
+        console.log($scope.name);
+    }
    $http.get(
                     url,
                     {transformResponse:function(data) {
@@ -20,4 +23,11 @@ app.controller('practicehttp', function($scope, $http) {
                 })
     })
 
+function createWord(word1, word2){
+	split1 = word1.split('')
+	supersplitter = split1.concat(word2.split(''))
+	return supersplitter
+}
+
+console.log(createWord('hello', 'gamesession'))
 
